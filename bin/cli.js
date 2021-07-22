@@ -53,23 +53,23 @@ app.launch({
 
     var htmllintPath = 'htmllint';
 
-    if (env.modulePath) {
-        var cliPackage = require('../package.json'),
-            semver = require('semver');
+    // if (env.modulePath) {
+    //     var cliPackage = require('../package.json'),
+    //         semver = require('semver');
 
-        var acceptedRange = cliPackage.dependencies.htmllint,
-            localVersion = env.modulePackage.version;
+    //     var acceptedRange = cliPackage.dependencies.htmllint,
+    //         localVersion = env.modulePackage.version;
 
-        if (semver.satisfies(localVersion, acceptedRange)) {
-            htmllintPath = env.modulePath;
-        } else {
-            console.log(
-                chalk.red('local htmllint version is not supported:'),
-                chalk.magenta(localVersion, '!=', acceptedRange)
-            );
-            console.log('using builtin version of htmllint');
-        }
-    }
+    //     if (semver.satisfies(localVersion, acceptedRange)) {
+    //         htmllintPath = env.modulePath;
+    //     } else {
+    //         console.log(
+    //             chalk.red('local htmllint version is not supported:'),
+    //             chalk.magenta(localVersion, '!=', acceptedRange)
+    //         );
+    //         console.log('using builtin version of htmllint');
+    //     }
+    // }
 
     var htmllint = require(htmllintPath);
     var formatters = require('../lib/formatters');
